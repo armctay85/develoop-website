@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import elegant serif font */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 60 6% 96%;
+    --card: 0 0% 7%;
+    --card-foreground: 60 6% 96%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 60 6% 96%;
+    --primary: 36 32% 58%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 60 6% 96%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 60 4% 60%;
+    --accent: 36 32% 58%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 36 32% 58%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-medium tracking-tight;
+  }
+
+  h1 {
+    @apply text-display-lg md:text-display-xl;
+  }
+
+  h2 {
+    @apply text-display-md;
+  }
+
+  h3 {
+    @apply text-display-sm;
+  }
+
+  p {
+    @apply text-body-md text-foreground-secondary;
+  }
+
+  a {
+    @apply text-foreground transition-colors duration-200 hover:text-accent;
+  }
+
+  /* Selection styling */
+  ::selection {
+    @apply bg-accent/30 text-foreground;
+  }
+}
+
+@layer components {
+  /* Premium button styles */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium tracking-wide transition-all duration-300 ease-out;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-background hover:bg-accent-light;
+  }
+
+  .btn-secondary {
+    @apply btn bg-transparent border border-border text-foreground hover:border-accent hover:text-accent;
+  }
+
+  .btn-ghost {
+    @apply btn text-foreground-muted hover:text-foreground;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-background-secondary border border-border rounded-lg p-6 transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply card hover:border-border-light hover:bg-background-elevated;
+  }
+
+  /* Section spacing */
+  .section {
+    @apply py-20 md:py-30 px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-inner {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Gradient overlays */
+  .gradient-overlay {
+    @apply bg-gradient-to-t from-background via-background/80 to-transparent;
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent;
+  }
+
+  /* Divider */
+  .divider {
+    @apply h-px bg-border w-full;
+  }
+
+  .divider-accent {
+    @apply h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent w-full;
+  }
+}
+
+@layer utilities {
+  /* Focus styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background;
+  }
+
+  /* Animation delays */
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  /* Premium text treatments */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .leading-tight-custom {
+    line-height: 1.15;
+  }
+}

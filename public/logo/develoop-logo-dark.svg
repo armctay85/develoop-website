@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" width="200" height="40">
+  <defs>
+    <linearGradient id="loopGradientDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b7355;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#9a7b5a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b7355;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Development Loop Mark -->
+  <g transform="translate(0, 0)">
+    <!-- The Loop: Infinity/Development Cycle concept -->
+    <path d="M 8 20 
+             C 8 8, 18 2, 26 8
+             C 32 13, 28 20, 20 24
+             C 14 27, 10 23, 14 18
+             C 17 14, 24 16, 28 20
+             C 32 25, 26 34, 18 34
+             C 10 34, 4 26, 8 20 Z" 
+          fill="none" 
+          stroke="url(#loopGradientDark)" 
+          stroke-width="2.5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+    
+    <!-- Architectural frame corners -->
+    <path d="M 2 8 L 2 2 L 8 2" fill="none" stroke="#8b7355" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 34 2 L 40 2 L 40 8" fill="none" stroke="#8b7355" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 40 32 L 40 38 L 34 38" fill="none" stroke="#8b7355" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 8 38 L 2 38 L 2 32" fill="none" stroke="#8b7355" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Directional arrows -->
+    <path d="M 18 6 L 20 8 L 22 6" fill="none" stroke="#9a7b5a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 30 28 L 28 30 L 30 32" fill="none" stroke="#9a7b5a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Wordmark -->
+  <text x="50" y="26" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="500" letter-spacing="0.06em" fill="#1a1a1a">Deve</text>
+  <text x="97" y="26" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="500" letter-spacing="0.06em" fill="#8b7355">loop</text>
+</svg>
