@@ -28,15 +28,46 @@ export interface NavItem {
   href: string;
 }
 
-export interface ContactFormData {
+export interface PricingTier {
+  id: string;
   name: string;
-  email: string;
-  company: string;
-  message: string;
+  description: string;
+  price: number;
+  period: string;
+  features: string[];
+  cta: string;
+  popular: boolean;
 }
 
-export interface SocialLink {
-  platform: string;
-  url: string;
+export interface PlatformFeature {
+  id: string;
+  title: string;
+  description: string;
   icon: string;
+  highlights: string[];
+}
+
+export interface DataInsight {
+  id: string;
+  title: string;
+  value: string;
+  change: string;
+  trend: "up" | "down" | "neutral";
+  description: string;
+}
+
+export interface LocationScore {
+  id: string;
+  address: string;
+  suburb: string;
+  state: string;
+  score: number;
+  footTraffic: number;
+  competitionDensity: number;
+  demographics: {
+    age18to34: number;
+    incomeMedian: number;
+    population: number;
+  };
+  rentPerSqm: number;
 }

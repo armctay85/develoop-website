@@ -28,9 +28,10 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-foreground-muted max-w-md mb-6 text-body-sm">
-              Specialist retail development consultancy bringing 25 years of 
-              experience from Kmart, H&M, Starbucks, and UNIQLO to help retailers 
-              navigate complex development challenges.
+              The intelligence platform for Australian retail. Market data, 
+              site selection tools, and portfolio management for 2,400+ retail 
+              decision-makers. Powered by 25 years experience across Kmart, H&M, 
+              Starbucks, and UNIQLO.
             </p>
             <div className="text-caption text-foreground-subtle">
               <p>ABN: {companyInfo.abn}</p>

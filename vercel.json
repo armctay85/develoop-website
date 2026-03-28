@@ -1,8 +1,19 @@
 {
-  "name": "develoop-website",
   "version": 2,
-  "buildCommand": null,
-  "outputDirectory": "dist",
-  "framework": null,
-  "installCommand": null
+  "name": "develoop",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }

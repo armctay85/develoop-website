@@ -1,11 +1,12 @@
-import { Service, Experience, Insight, NavItem } from "@/types";
+import { Service, Experience, Insight, NavItem, PricingTier, PlatformFeature, DataInsight } from "@/types";
 
 export const navItems: NavItem[] = [
-  { label: "Services", href: "/services" },
-  { label: "Experience", href: "/experience" },
+  { label: "Platform", href: "/platform" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Data", href: "/data" },
+  { label: "Community", href: "/community" },
+  { label: "Consultancy", href: "/services" },
   { label: "About", href: "/about" },
-  { label: "Insights", href: "/insights" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const services: Service[] = [
@@ -113,30 +114,163 @@ export const experiences: Experience[] = [
 export const insights: Insight[] = [
   {
     id: "1",
-    title: "The Future of Retail Development in Australia",
-    excerpt: "Exploring emerging trends and opportunities in the Australian retail landscape, from mixed-use developments to experiential retail concepts.",
-    category: "Industry Trends",
+    title: "Q1 2024 Australian Retail Market Report",
+    excerpt: "Comprehensive analysis of retail performance across major Australian markets, including foot traffic trends, rent movements, and emerging opportunities.",
+    category: "Quarterly Report",
     date: "2024-03-15",
-    readTime: "6 min read",
-    slug: "future-retail-development-australia",
+    readTime: "15 min read",
+    slug: "q1-2024-retail-market-report",
   },
   {
     id: "2",
-    title: "Critical Path Management: Lessons from 25 Years",
-    excerpt: "Key insights on managing complex retail development projects and the critical factors that determine success or failure.",
+    title: "Site Selection: Data-Driven Decision Making",
+    excerpt: "How leading retailers are using predictive analytics and demographic data to identify high-potential locations before competitors.",
     category: "Best Practices",
     date: "2024-02-28",
     readTime: "8 min read",
-    slug: "critical-path-management-lessons",
+    slug: "site-selection-data-driven",
   },
   {
     id: "3",
-    title: "Sustainable Retail: Beyond the Buzzword",
-    excerpt: "How leading retailers are embedding sustainability into their development strategies and why it matters for long-term success.",
-    category: "Sustainability",
+    title: "The State of Australian Retail Leasing 2024",
+    excerpt: "Exclusive benchmark data on rent rates, lease terms, and landlord incentives across 50+ retail precincts nationwide.",
+    category: "Research",
     date: "2024-02-10",
-    readTime: "5 min read",
-    slug: "sustainable-retail-strategy",
+    readTime: "12 min read",
+    slug: "retail-leasing-benchmarks-2024",
+  },
+];
+
+export const pricingTiers: PricingTier[] = [
+  {
+    id: "free",
+    name: "Free",
+    description: "Get a taste of retail intelligence",
+    price: 0,
+    period: "month",
+    features: [
+      "Monthly market snapshot",
+      "Basic location search (5 queries/month)",
+      "Weekly newsletter",
+      "Public benchmark data",
+      "Community forum read access",
+    ],
+    cta: "Get Started",
+    popular: false,
+  },
+  {
+    id: "pro",
+    name: "Pro",
+    description: "For serious retail decision-makers",
+    price: 299,
+    period: "month",
+    features: [
+      "Full market intelligence dashboard",
+      "Site selection tool (unlimited)",
+      "Portfolio management dashboard",
+      "Quarterly trend reports (PDF)",
+      "Private community access",
+      "Email alerts & notifications",
+      "Export data to Excel/CSV",
+    ],
+    cta: "Start Free Trial",
+    popular: true,
+  },
+  {
+    id: "enterprise",
+    name: "Enterprise",
+    description: "For retail chains and property groups",
+    price: 2999,
+    period: "month",
+    features: [
+      "Everything in Pro",
+      "Custom research requests",
+      "Dedicated analyst support",
+      "API access",
+      "White-label reports",
+      "Bulk data exports",
+      "Priority support",
+      "Quarterly strategy sessions",
+    ],
+    cta: "Contact Sales",
+    popular: false,
+  },
+];
+
+export const platformFeatures: PlatformFeature[] = [
+  {
+    id: "market-intelligence",
+    title: "Market Intelligence",
+    description: "Real-time data on foot traffic, rent benchmarks, and competitive landscape across 15,000+ Australian retail locations.",
+    icon: "BarChart3",
+    highlights: [
+      "Foot traffic trends by location/sector",
+      "Rent benchmarks by suburb",
+      "Competitor opening/closing tracker",
+      "Sales per sqm benchmarks",
+      "Customer demographic shifts",
+    ],
+  },
+  {
+    id: "site-selection",
+    title: "Site Selection Tool",
+    description: "AI-powered location scoring that predicts retail success probability based on 50+ data points.",
+    icon: "Map",
+    highlights: [
+      "Heat map: Best locations for any retail type",
+      "Predictive success probability score",
+      "Demographics overlay",
+      "Competition density analysis",
+      "Foot traffic forecasting",
+    ],
+  },
+  {
+    id: "portfolio-management",
+    title: "Portfolio Management",
+    description: "Track and optimize your entire retail network from a single dashboard.",
+    icon: "LayoutGrid",
+    highlights: [
+      "Track multiple locations",
+      "Performance dashboards",
+      "Lease renewal alerts",
+      "Capex planning tools",
+      "Network optimization insights",
+    ],
+  },
+];
+
+export const dataInsights: DataInsight[] = [
+  {
+    id: "foot-traffic",
+    title: "Foot Traffic Index",
+    value: "2.4M",
+    change: "+12%",
+    trend: "up",
+    description: "Daily foot traffic across monitored locations",
+  },
+  {
+    id: "rent-growth",
+    title: "Rent Growth YoY",
+    value: "4.2%",
+    change: "+0.8%",
+    trend: "up",
+    description: "Average retail rent growth year-over-year",
+  },
+  {
+    id: "store-openings",
+    title: "New Store Openings",
+    value: "847",
+    change: "+23%",
+    trend: "up",
+    description: "New retail stores opened this quarter",
+  },
+  {
+    id: "vacancy-rate",
+    title: "Prime Vacancy Rate",
+    value: "3.1%",
+    change: "-0.4%",
+    trend: "down",
+    description: "Vacancy rate in prime retail precincts",
   },
 ];
 
@@ -145,14 +279,20 @@ export const brandLogos = [
   { name: "H&M", text: "H&M" },
   { name: "Starbucks", text: "Starbucks" },
   { name: "UNIQLO", text: "UNIQLO" },
+  { name: "Woolworths", text: "Woolworths" },
+  { name: "Westfield", text: "Westfield" },
 ];
 
 export const companyInfo = {
   name: "Develoop",
-  fullName: "Develoop Retail Development Consultancy",
+  fullName: "Develoop Retail Intelligence",
+  tagline: "The Intelligence Platform for Australian Retail",
   abn: "30 140 738 615",
   email: "support@develoop.com.au",
   website: "develoop.com.au",
   founded: "2024",
   location: "Australia",
+  locations: "15,000+",
+  dataPoints: "50M+",
+  members: "2,400+",
 };
