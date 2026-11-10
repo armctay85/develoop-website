@@ -1,153 +1,100 @@
 import type { Metadata } from "next";
-import { Navigation } from "@/components/layout/Navigation";
-import { Footer } from "@/components/layout/Footer";
-import { FadeIn } from "@/components/ui/FadeIn";
-import { ServiceIcon } from "@/components/ui/service-icon";
-import { SectionDivider } from "@/components/ui/section-divider";
-import { HeroBackground } from "@/components/ui/hero-background";
-import { services } from "@/lib/data";
-import { ArrowRight, Check } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import { PageHeader } from "@/components/layout/PageHeader";
+import { Section } from "@/components/ui/Section";
+import { addOns, diagnostic, retainer, systemsBuild, systemsModules, type Tier } from "@/lib/content";
+import { pageMeta } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Services | Develoop Retail Development Consultancy",
-  description: "Comprehensive retail development services including strategy, leasing advisory, design leadership, critical path optimisation, and lifecycle management.",
-};
+export const metadata: Metadata = pageMeta({
+  title: "Services",
+  description:
+    "Delivery Systems Diagnostic, systems build and an implementation retainer. Deliverables, timelines and starting fees for Develoop advisory.",
+  path: "/services/",
+});
 
-// Service image mapping
-const serviceImages: Record<string, string> = {
-  strategy: "/images/services/strategy.svg",
-  leasing: "/images/services/leasing.svg",
-  design: "/images/services/design.svg",
-  "critical-path": "/images/services/critical-path.svg",
-  lifecycle: "/images/services/lifecycle.svg",
-  optimization: "/images/services/optimization.svg",
-};
+function TierBlock({ tier }: { tier: Tier }) {
+  return (
+    <article id={tier.id} className="scroll-mt-24 border-t border-border py-14 sm:py-20">
+      <div className="container-page grid gap-8 lg:grid-cols-12">
+        <div className="lg:col-span-5">
+          <h2 className="text-balance font-serif text-3xl text-foreground sm:text-4xl">{tier.name}</h2>
+          <p className="mt-4 font-serif text-2xl text-accent">{tier.price}</p>
+          <p className="mt-2 text-sm text-foreground-muted">{tier.timeline}</p>
+          <p className="mt-5 text-base leading-relaxed text-foreground-muted">{tier.summary}</p>
+          {tier.note ? <p className="mt-4 text-sm leading-relaxed text-foreground-muted">{tier.note}</p> : null}
+          <Link href="/contact" className="btn-primary mt-8 w-full sm:w-auto">
+            Book a call
+          </Link>
+        </div>
+        <div className="lg:col-span-6 lg:col-start-7">
+          <h3 className="font-sans text-sm font-medium tracking-normal text-foreground">Deliverables</h3>
+          <ul className="mt-4 space-y-3">
+            {tier.deliverables.map((item) => (
+              <li key={item} className="border-t border-border pt-3 text-sm leading-relaxed text-foreground-muted sm:text-base">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </article>
+  );
+}
 
 export default function ServicesPage() {
   return (
     <>
-      <Navigation />
-      <main className="pt-20">
-        {/* Hero with background */}
-        <section className="section relative overflow-hidden">
-          <HeroBackground variant="geometric" />
-          
-          <div className="section-inner relative z-10">
-            <FadeIn className="max-w-3xl">
-              <p className="text-accent text-sm font-medium tracking-widest uppercase mb-4">
-                Our Services
-              </p>
-              <h1 className="text-display-lg text-foreground mb-6">
-                Expertise for every stage of development
-              </h1>
-              <p className="text-body-lg text-foreground-secondary">
-                From initial strategy through to successful store opening, we provide 
-                comprehensive support tailored to your specific challenges and objectives.
-              </p>
-            </FadeIn>
-          </div>
-        </section>
+      <PageHeader
+        eyebrow="Services"
+        title="Advisory, in three engagements."
+        lede="Each one is consultant-led. Your team keeps the decisions, the appointments and the works. Fees below are starting points, confirmed in a proposal."
+      />
 
-        {/* Services List with Visuals */}
-        <section className="section bg-background-secondary relative">
-          <div className="section-inner">
-            <div className="space-y-24">
-              {services.map((service, index) => {
-                const imageUrl = serviceImages[service.id] || "/images/services/strategy.svg";
-                return (
-                  <FadeIn key={service.id} delay={index * 0.1}>
-                    <div id={service.id} className="scroll-mt-24">
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        {/* Visual side */}
-                        <div className={`relative ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                          <div className="aspect-[4/3] rounded-lg border border-border overflow-hidden bg-background relative group">
-                            <Image
-                              src={imageUrl}
-                              alt={service.title}
-                              fill
-                              className="object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
-                          </div>
-                          
-                          {/* Corner accent */}
-                          <div className="absolute -top-3 -left-3 w-12 h-12 border-t-2 border-l-2 border-accent/30 rounded-tl-lg" />
-                          <div className="absolute -bottom-3 -right-3 w-12 h-12 border-b-2 border-r-2 border-accent/30 rounded-br-lg" />
-                        </div>
+      <TierBlock tier={diagnostic} />
+      <TierBlock tier={systemsBuild} />
 
-                        {/* Content side */}
-                        <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                          <ServiceIcon 
-                            icon={service.icon} 
-                            size="xl" 
-                            variant="outlined"
-                            className="mb-6"
-                          />
-                          
-                          <h2 className="text-display-sm text-foreground mb-4">
-                            {service.title}
-                          </h2>
-                          
-                          <p className="text-body-lg text-foreground-secondary mb-8">
-                            {service.description}
-                          </p>
-                          
-                          <h3 className="text-sm font-medium text-accent uppercase tracking-wide mb-4">
-                            What we deliver
-                          </h3>
-                          
-                          <ul className="grid grid-cols-1 gap-4">
-                            {service.details.map((detail) => (
-                              <li key={detail} className="flex items-start gap-3">
-                                <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                  <Check className="w-3 h-3 text-accent" />
-                                </div>
-                                <span className="text-body-sm text-foreground-secondary">{detail}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
+      <Section>
+        <h2 className="font-serif text-3xl text-foreground">Or commission a module</h2>
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground-muted">
+          The module fees are a way to start with one piece. They are not added on top of the full systems build.
+        </p>
+        <div className="mt-10 grid gap-4 lg:grid-cols-3">
+          {systemsModules.map((module) => (
+            <article key={module.id} id={module.id} className="scroll-mt-24 flex min-w-0 flex-col border border-border p-6">
+              <h3 className="font-serif text-2xl text-foreground">{module.name}</h3>
+              <p className="mt-3 font-serif text-xl text-accent">{module.price}</p>
+              <p className="mt-1 text-sm text-foreground-muted">{module.timeline}</p>
+              <p className="mt-4 text-sm leading-relaxed text-foreground-muted">{module.summary}</p>
+              <ul className="mt-5 space-y-2 text-sm leading-relaxed text-foreground-muted">
+                {module.deliverables.map((item) => (
+                  <li key={item} className="border-t border-border pt-2">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </Section>
 
-                      {index < services.length - 1 && (
-                        <SectionDivider variant="ornate" className="mt-24" />
-                      )}
-                    </div>
-                  </FadeIn>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+      <TierBlock tier={retainer} />
 
-        {/* CTA */}
-        <section className="section relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-background to-background-secondary" />
-          
-          <div className="section-inner relative z-10">
-            <FadeIn className="max-w-3xl mx-auto text-center">
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent/10 border border-accent/30 mb-8">
-                <span className="text-3xl text-accent">?</span>
-              </div>
-              
-              <h2 className="text-display-md text-foreground mb-6">
-                Need a combination of services?
-              </h2>
-              <p className="text-body-lg text-foreground-secondary mb-8">
-                Every engagement is tailored to your specific needs. Let&apos;s discuss 
-                how we can support your retail development objectives.
-              </p>
-              <Link href="/contact" className="btn-primary group">
-                Start a Conversation
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </FadeIn>
-          </div>
-        </section>
-      </main>
-      <Footer />
+      <Section labelledBy="addon-services" className="border-t border-border">
+        <h2 id="addon-services" className="font-serif text-3xl text-foreground sm:text-4xl">
+          Add-ons
+        </h2>
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground-muted">
+          These sit beside a diagnostic, a systems build or a retainer. Scope and fee are set in the proposal. No public starting fee is listed, because the size varies with the site.
+        </p>
+        <ul className="mt-10 grid gap-4 md:grid-cols-3">
+          {addOns.map((addOn) => (
+            <li key={addOn.name} className="min-w-0 border border-border p-6">
+              <h3 className="font-serif text-xl text-foreground">{addOn.name}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-foreground-muted">{addOn.text}</p>
+            </li>
+          ))}
+        </ul>
+      </Section>
     </>
   );
 }

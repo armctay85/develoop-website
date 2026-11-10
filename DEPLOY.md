@@ -1,39 +1,17 @@
-# Deploy to Vercel (Zero-Token Method)
+# Deploy
 
-## Option 1: Vercel CLI (Recommended)
-```bash
-# 1. Install Vercel CLI
-npm i -g vercel
+This site deploys as a Next.js application. The enquiry form needs the server runtime, so do not publish it as a static export.
 
-# 2. Login (opens browser - no token sharing)
-vercel login
+Domain and DNS are already configured. Do not change them as part of a routine deploy.
 
-# 3. Deploy
-vercel --prod
-```
+## Vercel
 
-## Option 2: Git Integration
-1. Push to GitHub
-2. Import at https://vercel.com/new
-3. Auto-deploys on push
+Push the repository. The existing project builds with `npm run build`.
 
-## Option 3: Manual Upload
-1. Zip this folder
-2. Upload at https://vercel.com/new
+Set these environment variables on the host when mail should send:
 
-## Domain Setup
-After deploy, add custom domain:
-```
-vercel domains add develoop.com.au
-```
+- `RESEND_API_KEY`
+- `ENQUIRY_TO_EMAIL`
+- `ENQUIRY_FROM_EMAIL`
 
-Or in Vercel dashboard:
-1. Go to Project Settings → Domains
-2. Add `develoop.com.au`
-3. Follow DNS instructions for Crazy Domains
-
-## Environment Variables
-None required for static site.
-
-## Build Output
-Static files in `dist/` folder (pre-built).
+If they are unset, the form still shows success and the enquiry is written to the server log. See the README.

@@ -1,0 +1,27 @@
+{
+  "name": "Develoop",
+  "short_name": "Develoop",
+  "description": "Consultant-led design, delivery and development advisory.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "lang": "en-AU",
+  "icons": [
+    {
+      "src": "/logo/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo/develoop-logo-500.png",
+      "sizes": "500x500",
+      "type": "image/png"
+    }
+  ]
+}

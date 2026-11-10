@@ -1,5 +1,4 @@
-"use client";
-
+import { useId } from "react";
 import { cn } from "@/lib/utils";
 
 interface LogoProps {
@@ -22,6 +21,7 @@ export function Logo({
   showWordmark = true,
   size = "md",
 }: LogoProps) {
+  const gradientId = useId().replace(/:/g, "");
   const { width, height, fontSize } = sizeMap[size];
   
   const strokeColor = variant === "dark" ? "#8b7355" : "#b8956e";
@@ -38,9 +38,10 @@ export function Logo({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="flex-shrink-0"
+        aria-hidden="true"
       >
         <defs>
-          <linearGradient id={`logoGrad-${variant}`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor={strokeColor} />
             <stop offset="50%" stopColor={accentColor} />
             <stop offset="100%" stopColor={strokeColor} />
@@ -57,7 +58,7 @@ export function Logo({
              C 30 24, 24 32, 16 32
              C 9 32, 5 26, 8 21 Z"
           fill="none"
-          stroke={`url(#logoGrad-${variant})`}
+          stroke={`url(#${gradientId})`}
           strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"

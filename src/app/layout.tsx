@@ -1,94 +1,96 @@
 import type { Metadata, Viewport } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
+import { Footer } from "@/components/layout/Footer";
+import { Navigation } from "@/components/layout/Navigation";
+import { professionalServiceSchema } from "@/lib/schema";
+import { site } from "@/lib/site";
 import "./globals.css";
 
+const sans = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const serif = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Develoop | The Intelligence Platform for Australian Retail",
-  description: "Market intelligence, site selection tools, and portfolio management for retail decision-makers. Powered by data from 15,000+ Australian retail locations and 25 years experience across Kmart, H&M, Starbucks, and UNIQLO.",
-  keywords: ["retail intelligence", "site selection", "retail data", "foot traffic", "rent benchmarks", "Australia", "retail analytics", "portfolio management", "market research"],
-  authors: [{ name: "Develoop" }],
-  creator: "Develoop",
-  metadataBase: new URL("https://develoop.com.au"),
-  alternates: {
-    canonical: "/",
+  metadataBase: new URL(site.url),
+  title: {
+    default: "Develoop | Design, delivery and development advisory",
+    template: "%s | Develoop",
   },
+  description: site.description,
+  applicationName: site.name,
+  authors: [{ name: site.name }],
+  creator: site.name,
+  keywords: [
+    "delivery advisory",
+    "development advisory",
+    "tender protocols",
+    "consultant briefs",
+    "multi-site rollout",
+    "Australia",
+  ],
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_AU",
-    url: "https://develoop.com.au",
-    siteName: "Develoop",
-    title: "Develoop | The Intelligence Platform for Australian Retail",
-    description: "Market intelligence, site selection tools, and portfolio management for retail decision-makers.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Develoop - Retail Intelligence Platform",
-      },
-    ],
+    url: site.url,
+    siteName: site.name,
+    title: "Develoop | Design, delivery and development advisory",
+    description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Develoop | The Intelligence Platform for Australian Retail",
-    description: "Market intelligence, site selection tools, and portfolio management for retail decision-makers.",
-    images: ["/og-image.jpg"],
+    title: "Develoop | Design, delivery and development advisory",
+    description: site.description,
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
-  verification: {
-    google: "your-google-verification-code",
+  icons: {
+    icon: [
+      { url: "/logo/favicon.ico" },
+      { url: "/logo/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [{ url: "/logo/apple-touch-icon.png", sizes: "180x180" }],
   },
+  manifest: "/site.webmanifest",
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-    { media: "(prefers-color-scheme: light)", color: "#f5f5f0" },
-  ],
+  themeColor: "#0a0a0a",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-AU" className="dark scroll-smooth">
-      <head>
-        <link rel="icon" type="image/x-icon" href="/logo/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/logo/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/logo/favicon-16x16.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/logo/apple-touch-icon.png" />
-        <link rel="mask-icon" href="/logo/develoop-logo.svg" color="#b8956e" />
-        <link rel="manifest" href="/site.webmanifest" />
-        
-        {/* Preconnect to Google Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
-      
-      <body className="min-h-screen bg-background antialiased selection:bg-accent/30 selection:text-foreground">
-        {/* Skip to main content - accessibility */}
-        <a 
-          href="#main-content" 
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-accent focus:text-background focus:rounded"
+    <html lang="en-AU" className={`dark ${sans.variable} ${serif.variable}`}>
+      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:inline-flex focus:min-h-11 focus:items-center focus:bg-accent focus:px-4 focus:text-background"
         >
           Skip to main content
         </a>
-        
-        {children}
+        <Navigation />
+        <main id="main-content" tabIndex={-1} className="outline-none">
+          {children}
+        </main>
+        <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }}
+        />
       </body>
     </html>
   );

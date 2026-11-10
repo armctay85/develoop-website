@@ -2,15 +2,15 @@
 
 ## Logo Philosophy
 
-The Develoop logo embodies the concept of the **"Development Loop"** — a continuous cycle of improvement and iteration that defines our approach to retail development.
+The Develoop logo embodies the concept of the **"Development Loop"**: a continuous cycle the next site can reuse.
 
 ### The Loop Concept
 
 The central mark is an abstract infinity-style loop that represents:
-- **Continuous Improvement** — The iterative nature of development projects
-- **Full-Cycle Service** — From strategy through to completion and beyond
-- **Adaptive Process** — Learning and refining at every stage
-- **Infinity Symbol (∞)** — Suggests enduring value and ongoing partnership
+- **Continuous improvement**: the same standard, refined as each site is delivered
+- **A reusable system**: briefs, protocols and templates a team can start from
+- **An adaptive process**: learning at each gate, then writing it back into the library
+- **A closed loop**: the work returns to the standard, rather than starting from a blank page
 
 ### Design Elements
 
@@ -104,7 +104,7 @@ Maintain clear space around the logo equal to the height of the loop mark on all
 ❌ **Don't** add effects (shadows, bevels, gradients beyond brand)  
 ❌ **Don't** change the letterspacing  
 ❌ **Don't** use the icon without the wordmark unless space constrained  
-❌ **Don't** break the loop flow — the continuity is essential to the concept  
+Do not break the loop flow. The continuity is essential to the concept.
 
 ---
 
@@ -140,7 +140,7 @@ Maintain clear space around the logo equal to the height of the loop mark on all
 - **Premium** but not pretentious
 
 ### Core Message
-> *"Development is not a straight line — it's a continuous loop of strategy, execution, learning, and refinement."*
+> Development is not a straight line. It is a continuous loop of briefing, documentation, learning and refinement.
 
 ---
 

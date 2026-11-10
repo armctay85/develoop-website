@@ -1,36 +1,30 @@
 # Develoop Brand Concept Note
 
-## Core Insight
-**"Develoop" = "Development Loop"**
+## Core insight
 
-The name is a play on words combining:
-- **DEVELOP** (development, growth, creation)
-- **LOOP** (cycle, iteration, continuous process)
+Develoop joins "develop" and "loop".
 
-## Logo Direction
-The logo should visually communicate this "loop" concept:
+- Develop: the work of bringing a site from brief to documents the team can build from
+- Loop: the same standard, used again on the next site
 
-### Visual Ideas:
-1. **Infinity/Loop Form** — A continuous loop integrated with the "D"
-2. **Mobius Strip** — Single surface, continuous cycle
-3. **Architectural Loop** — Geometric form suggesting development lifecycle
-4. **Circular Process** — Visual metaphor for full-service, end-to-end
+## Logo direction
 
-### Symbolism:
-- The **loop** represents:
-  - Continuous improvement
-  - Iterative development process
-  - Full-cycle service (strategy → design → delivery)
-  - Ongoing partnership with clients
-  - Closed-loop feedback systems
+The mark is a loop inside an architectural frame.
 
-### Reference Concepts:
-- Development lifecycle: Strategy → Design → Construction → Operations → back to Strategy
-- Retail property development as continuous evolution
-- The "loop" of market analysis, planning, execution, review
+- A continuous line, so the work reads as a cycle rather than a one-off
+- Four corner brackets, so the loop sits in a structure
+- Bronze on near-black for the primary digital use
 
-## Application:
-- Logo mark: Abstract loop form
-- Can work standalone or with wordmark
-- Suggests motion, progress, completeness
-- Premium, architectural, sophisticated
+## What the loop stands for
+
+- One delivery system, reused
+- Gates, handoffs and a return to the standard after each site
+- Advisory beside the client's team
+
+The practice does not use the mark to imply that Develoop negotiates leases or carries out building work.
+
+## Application
+
+- Mark alone, or mark with the wordmark
+- Light bronze on dark backgrounds
+- Dark bronze on light backgrounds

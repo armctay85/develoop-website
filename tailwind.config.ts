@@ -20,7 +20,7 @@ const config: Config = {
           DEFAULT: "#f5f5f0",
           secondary: "#e8e8e2",
           muted: "#a3a39a",
-          subtle: "#73736b",
+          subtle: "#b0b0a8",
         },
         accent: {
           DEFAULT: "#b8956e",
@@ -35,8 +35,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        serif: ["Playfair Display", "Georgia", "serif"],
-        sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
+        serif: ["var(--font-serif)", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       fontSize: {
         // Fluid typography scales
