@@ -68,7 +68,7 @@ export const systemsModules: ModuleOffer[] = [
     id: "tender-protocols",
     name: "Tender protocols",
     price: "From A$6,000",
-    timeline: "About 3 weeks",
+    timeline: "Timeline agreed at scoping",
     summary:
       "A standard way to go to market: how the team chooses a procurement method, issues documents, compares returns and records an award recommendation.",
     deliverables: [
@@ -83,7 +83,7 @@ export const systemsModules: ModuleOffer[] = [
     id: "consultant-briefs",
     name: "Consultant briefs",
     price: "From A$5,000",
-    timeline: "About 2 to 3 weeks",
+    timeline: "Timeline agreed at scoping",
     summary:
       "Standard briefs so architects, quantity surveyors, project managers, planners and engineers are asked for the same things every time.",
     deliverables: [
@@ -98,7 +98,7 @@ export const systemsModules: ModuleOffer[] = [
     id: "documentation-library",
     name: "Documentation library",
     price: "From A$8,000",
-    timeline: "About 4 weeks",
+    timeline: "Timeline agreed at scoping",
     summary:
       "The templates a rollout repeats: so a new site starts from a standard, not from a blank page or last year's folder.",
     deliverables: [
@@ -142,7 +142,7 @@ export const systemsBuild: Tier = {
   id: "systems",
   name: "Systems Build",
   price: "From A$15,000",
-  timeline: "Typically 6 to 8 weeks for the full build",
+  timeline: "Timeline agreed at scoping",
   summary:
     "The reusable core of a rollout: tender protocols, standard consultant briefs and a documentation library. Commission the full build, or start with one module.",
   deliverables: [
@@ -233,7 +233,7 @@ export const principles: { title: string; text: string }[] = [
   },
   {
     title: "Gates before speed",
-    text: "A faster rollout is a side effect of fewer late surprises, not of skipping the decision that should have happened earlier.",
+    text: "Each stage keeps an owner and a decision, so the next stage starts from a record rather than a guess.",
   },
   {
     title: "Decisions a board can follow",

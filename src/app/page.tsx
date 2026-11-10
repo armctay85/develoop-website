@@ -17,11 +17,13 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_AU",
     type: "website",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Develoop. Design, delivery and development advisory." }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Develoop | Design, delivery and development advisory",
     description: site.description,
+    images: ["/opengraph-image"],
   },
 };
 
@@ -35,7 +37,7 @@ export default function HomePage() {
           <div className="lg:col-span-8">
             <Eyebrow>Design, delivery and development advisory</Eyebrow>
             <h1 className="max-w-4xl text-balance font-serif text-[2.6rem] leading-[1.05] tracking-[-0.025em] text-foreground sm:text-6xl lg:text-[4.5rem] lg:leading-[1.02]">
-              Deliver sites faster, at scale, with fewer surprises.
+              A delivery system for teams scaling a rollout of sites.
             </h1>
           </div>
           <div className="lg:col-span-4">
@@ -61,15 +63,15 @@ export default function HomePage() {
           ].map(([index, term, detail]) => (
             <div
               key={term}
-              className="flex min-w-0 gap-4 border-b border-border-light px-5 py-6 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0"
+              className="min-w-0 border-b border-border-light px-5 py-6 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0"
             >
-              <span className="font-serif text-xl text-accent" aria-hidden="true">
-                {index}
-              </span>
-              <div className="min-w-0">
-                <dt className="text-xs font-medium uppercase tracking-[0.14em] text-accent">{term}</dt>
-                <dd className="mt-2 font-serif text-2xl leading-tight text-foreground">{detail}</dd>
-              </div>
+              <dt className="flex items-baseline gap-3 text-xs font-medium uppercase tracking-[0.14em] text-accent">
+                <span className="font-serif text-xl normal-case tracking-normal" aria-hidden="true">
+                  {index}
+                </span>
+                {term}
+              </dt>
+              <dd className="mt-2 font-serif text-2xl leading-tight text-foreground">{detail}</dd>
             </div>
           ))}
         </dl>

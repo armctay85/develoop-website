@@ -21,8 +21,8 @@ export default function OpenGraphImage() {
       >
         <div style={{ display: "flex", fontSize: 28, letterSpacing: 0, color: "#b8956e" }}>Develoop</div>
         <div style={{ display: "flex", flexDirection: "column", fontSize: 64, lineHeight: 1.05, letterSpacing: 0 }}>
-          <div style={{ display: "flex" }}>Deliver faster, at scale,</div>
-          <div style={{ display: "flex" }}>with fewer surprises.</div>
+          <div style={{ display: "flex" }}>A delivery system for teams</div>
+          <div style={{ display: "flex" }}>scaling a rollout of sites.</div>
         </div>
         <div style={{ display: "flex", fontSize: 28, color: "#c8c8c0" }}>
           Design, delivery and development advisory

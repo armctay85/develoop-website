@@ -25,7 +25,7 @@ export function Footer() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="inline-flex min-h-11 items-center text-sm text-foreground-muted hover:text-accent"
+                  className="flex min-h-11 w-full items-center text-sm text-foreground-muted hover:text-accent"
                 >
                   {item.label}
                 </Link>
@@ -38,14 +38,14 @@ export function Footer() {
           <h2 className="font-sans text-sm font-medium tracking-normal text-foreground">Start</h2>
           <ul className="mt-3">
             <li>
-              <Link href="/contact" className="inline-flex min-h-11 items-center text-sm text-foreground-muted hover:text-accent">
+              <Link href="/contact" className="flex min-h-11 w-full items-center text-sm text-foreground-muted hover:text-accent">
                 Book a call
               </Link>
             </li>
             <li>
               <a
                 href={estimateHqUrl}
-                className="inline-flex min-h-11 items-center text-sm text-foreground-muted hover:text-accent"
+                className="flex min-h-11 w-full items-center text-sm text-foreground-muted hover:text-accent"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -54,12 +54,12 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <Link href="/privacy" className="inline-flex min-h-11 items-center text-sm text-foreground-muted hover:text-accent">
+              <Link href="/privacy" className="flex min-h-11 w-full items-center text-sm text-foreground-muted hover:text-accent">
                 Privacy
               </Link>
             </li>
             <li>
-              <Link href="/terms" className="inline-flex min-h-11 items-center text-sm text-foreground-muted hover:text-accent">
+              <Link href="/terms" className="flex min-h-11 w-full items-center text-sm text-foreground-muted hover:text-accent">
                 Terms
               </Link>
             </li>

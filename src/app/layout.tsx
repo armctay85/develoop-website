@@ -44,11 +44,13 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: "Develoop | Design, delivery and development advisory",
     description: site.description,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Develoop. Design, delivery and development advisory." }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Develoop | Design, delivery and development advisory",
     description: site.description,
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
