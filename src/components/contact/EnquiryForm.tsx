@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useId, useState } from "react";
-import { budgetOptions, enquirySchema, fieldErrorsFromZod, siteVolumeOptions } from "@/lib/enquiry";
+import { enquirySchema, feeBandOptions, fieldErrorsFromZod, siteVolumeOptions } from "@/lib/enquiry";
 import { cn } from "@/lib/utils";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -112,11 +112,11 @@ export function EnquiryForm() {
           error={fieldErrors.sitesPerYear}
         />
         <SelectField
-          id="budget"
-          label="Budget band"
-          placeholder="Select a band"
-          options={budgetOptions}
-          error={fieldErrors.budget}
+          id="feeBand"
+          label="Fee band"
+          placeholder="Select a fee band"
+          options={feeBandOptions}
+          error={fieldErrors.feeBand}
         />
       </div>
 

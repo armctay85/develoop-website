@@ -29,9 +29,9 @@ const config: Config = {
           muted: "#8b7355",
         },
         border: {
-          DEFAULT: "#2a2a2a",
-          light: "#3a3a3a",
-          accent: "#3d3429",
+          DEFAULT: "#6e6e6e",
+          light: "#8a8a8a",
+          accent: "#a08b74",
         },
       },
       fontFamily: {

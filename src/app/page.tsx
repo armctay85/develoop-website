@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Eyebrow, Section } from "@/components/ui/Section";
-import { addOns, audiences, steps, systemsModules, tiers } from "@/lib/content";
+import { addOns, audiences, diagnostic, retainer, steps, systemsBuild, systemsModules } from "@/lib/content";
 import { estimateHqUrl, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -24,6 +24,8 @@ export const metadata: Metadata = {
     description: site.description,
   },
 };
+
+const companionTiers = [diagnostic, retainer];
 
 export default function HomePage() {
   return (
@@ -51,33 +53,50 @@ export default function HomePage() {
           </div>
         </div>
 
-        <dl className="mt-14 grid grid-cols-1 border border-border sm:mt-20 sm:grid-cols-3">
+        <dl className="mt-14 grid grid-cols-1 overflow-hidden border border-border-light bg-background-secondary sm:mt-20 sm:grid-cols-3">
           {[
-            ["Engagement", "Fixed-fee diagnostic"],
-            ["Starting fee", "From A$6,500"],
-            ["Time", "2 to 3 weeks"],
-          ].map(([term, detail]) => (
-            <div key={term} className="border-b border-border px-5 py-5 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0">
-              <dt className="text-xs uppercase tracking-[0.16em] text-accent">{term}</dt>
-              <dd className="mt-2 font-serif text-2xl text-foreground">{detail}</dd>
+            ["01", "Engagement", "Fixed-fee diagnostic"],
+            ["02", "Starting fee", "From A$6,500"],
+            ["03", "Time", "2 to 3 weeks"],
+          ].map(([index, term, detail]) => (
+            <div
+              key={term}
+              className="flex min-w-0 gap-4 border-b border-border-light px-5 py-6 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0"
+            >
+              <span className="font-serif text-xl text-accent" aria-hidden="true">
+                {index}
+              </span>
+              <div className="min-w-0">
+                <dt className="text-xs font-medium uppercase tracking-[0.14em] text-accent">{term}</dt>
+                <dd className="mt-2 font-serif text-2xl leading-tight text-foreground">{detail}</dd>
+              </div>
             </div>
           ))}
         </dl>
       </section>
 
       <Section labelledBy="who-heading" className="border-t border-border">
-        <Eyebrow>Who it is for</Eyebrow>
-        <h2 id="who-heading" className="max-w-2xl text-balance font-serif text-4xl text-foreground sm:text-5xl">
-          Teams that repeat the same kind of site, and feel the gaps more each time.
-        </h2>
-        <ul className="mt-12 grid gap-6 md:grid-cols-3">
-          {audiences.map((audience) => (
-            <li key={audience.title} className="min-w-0 border-t border-accent/50 pt-5">
-              <h3 className="font-serif text-2xl text-foreground">{audience.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-foreground-muted sm:text-base">{audience.text}</p>
-            </li>
-          ))}
-        </ul>
+        <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-5">
+            <Eyebrow>Who it is for</Eyebrow>
+            <h2 id="who-heading" className="max-w-md text-balance font-serif text-4xl text-foreground sm:text-5xl">
+              Teams that repeat the same kind of site, and feel the gaps more each time.
+            </h2>
+          </div>
+          <ol className="divide-y divide-border border-y border-border lg:col-span-7">
+            {audiences.map((audience, index) => (
+              <li key={audience.title} className="grid grid-cols-[3rem_1fr] gap-4 py-6">
+                <span className="font-serif text-xl text-accent" aria-hidden="true">
+                  0{index + 1}
+                </span>
+                <div className="min-w-0">
+                  <h3 className="font-serif text-2xl text-foreground">{audience.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground-muted sm:text-base">{audience.text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
       </Section>
 
       <Section id="method" labelledBy="method-heading" className="border-t border-border">
@@ -85,16 +104,16 @@ export default function HomePage() {
         <h2 id="method-heading" className="max-w-2xl text-balance font-serif text-4xl text-foreground sm:text-5xl">
           Three steps. Diagnose, build, then stay while the team uses it.
         </h2>
-        <ol className="mt-12 grid gap-10 lg:grid-cols-3">
+        <ol className="mt-10 border-t border-border">
           {steps.map((step) => (
-            <li key={step.number} className="min-w-0">
-              <p className="font-serif text-3xl text-accent">{step.number}</p>
-              <h3 className="mt-4 font-serif text-2xl text-foreground">{step.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-foreground-muted sm:text-base">{step.text}</p>
+            <li key={step.number} className="grid gap-3 border-b border-border py-8 lg:grid-cols-12 lg:items-baseline lg:gap-8">
+              <p className="font-serif text-4xl leading-none text-accent lg:col-span-2">{step.number}</p>
+              <h3 className="font-serif text-2xl text-foreground lg:col-span-4">{step.title}</h3>
+              <p className="text-sm leading-relaxed text-foreground-muted sm:text-base lg:col-span-6">{step.text}</p>
             </li>
           ))}
         </ol>
-        <p className="mt-10">
+        <p className="mt-8">
           <Link href="/approach" className="inline-flex min-h-11 items-center text-sm text-accent underline decoration-accent/40 underline-offset-4">
             Read the method
           </Link>
@@ -111,23 +130,37 @@ export default function HomePage() {
             A proposal confirms scope, fee and timing before any work starts.
           </p>
         </div>
-        <ul className="mt-12 grid gap-4 lg:grid-cols-3">
-          {tiers.map((tier) => (
-            <li key={tier.id} className="flex min-w-0 flex-col border border-border bg-background-secondary p-6">
+
+        <article className="mt-12 border border-border-light bg-background-secondary p-6 sm:p-8 lg:p-10">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div className="min-w-0 max-w-2xl">
+              <h3 className="font-serif text-3xl text-foreground">{systemsBuild.name}</h3>
+              <p className="mt-4 font-serif text-2xl text-accent">{systemsBuild.price}</p>
+              <p className="mt-1 text-sm text-foreground-muted">{systemsBuild.timeline}</p>
+              <p className="mt-4 text-sm leading-relaxed text-foreground-muted sm:text-base">{systemsBuild.summary}</p>
+            </div>
+            <Link href={`/services#${systemsBuild.id}`} className="btn-secondary w-full shrink-0 sm:w-auto">
+              See deliverables
+            </Link>
+          </div>
+          <p className="mt-8 border-l-2 border-accent pl-4 text-sm leading-relaxed text-foreground">{systemsBuild.note}</p>
+          <ul className="mt-4 divide-y divide-border border-y border-border">
+            {systemsModules.map((module) => (
+              <li key={module.id} className="flex items-baseline justify-between gap-3 py-3 text-sm">
+                <span className="text-foreground-muted">{module.name}</span>
+                <span className="shrink-0 text-foreground">{module.price}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <ul className="mt-4 grid gap-4 md:grid-cols-2">
+          {companionTiers.map((tier) => (
+            <li key={tier.id} className="flex min-w-0 flex-col border border-border px-6 py-6">
               <h3 className="font-serif text-2xl text-foreground">{tier.name}</h3>
               <p className="mt-4 font-serif text-xl text-accent">{tier.price}</p>
               <p className="mt-1 text-sm text-foreground-muted">{tier.timeline}</p>
               <p className="mt-4 flex-1 text-sm leading-relaxed text-foreground-muted">{tier.summary}</p>
-              {tier.id === "systems" ? (
-                <ul className="mt-5 space-y-2 border-t border-border pt-4 text-sm text-foreground-muted">
-                  {systemsModules.map((module) => (
-                    <li key={module.id} className="flex items-baseline justify-between gap-3">
-                      <span>{module.name}</span>
-                      <span className="shrink-0 text-foreground">{module.price}</span>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
               <Link href={`/services#${tier.id}`} className="btn-secondary mt-6 w-full">
                 See deliverables
               </Link>

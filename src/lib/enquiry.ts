@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const siteVolumeValues = ["1-2", "3-5", "6-15", "16+"] as const;
-export const budgetValues = ["diagnostic", "module", "systems", "retainer", "unsure"] as const;
+export const feeBandValues = ["diagnostic", "module", "systems", "retainer", "unsure"] as const;
 
 export const siteVolumeOptions: { value: (typeof siteVolumeValues)[number]; label: string }[] = [
   { value: "1-2", label: "1 to 2" },
@@ -10,7 +10,7 @@ export const siteVolumeOptions: { value: (typeof siteVolumeValues)[number]; labe
   { value: "16+", label: "16 or more" },
 ];
 
-export const budgetOptions: { value: (typeof budgetValues)[number]; label: string }[] = [
+export const feeBandOptions: { value: (typeof feeBandValues)[number]; label: string }[] = [
   { value: "diagnostic", label: "Diagnostic, from A$6,500" },
   { value: "module", label: "A systems module, from A$5,000" },
   { value: "systems", label: "Systems build, from A$15,000" },
@@ -49,8 +49,8 @@ export const enquirySchema = z.object({
     .trim()
     .min(10, "Tell us a little more about the delivery pain.")
     .max(2000, "Please keep this under 2000 characters."),
-  budget: z.enum(budgetValues, {
-    error: "Select a budget band.",
+  feeBand: z.enum(feeBandValues, {
+    error: "Select a fee band.",
   }),
 });
 
@@ -73,8 +73,8 @@ export function labelForSiteVolume(value: Enquiry["sitesPerYear"]): string {
   return siteVolumeOptions.find((option) => option.value === value)?.label ?? value;
 }
 
-export function labelForBudget(value: Enquiry["budget"]): string {
-  return budgetOptions.find((option) => option.value === value)?.label ?? value;
+export function labelForFeeBand(value: Enquiry["feeBand"]): string {
+  return feeBandOptions.find((option) => option.value === value)?.label ?? value;
 }
 
 export function oneLine(value: string): string {
@@ -90,7 +90,7 @@ export function enquiryText(enquiry: Enquiry): string {
     `Company: ${oneLine(enquiry.company)}`,
     `Role: ${oneLine(enquiry.role)}`,
     `Sites per year: ${labelForSiteVolume(enquiry.sitesPerYear)}`,
-    `Budget band: ${labelForBudget(enquiry.budget)}`,
+    `Fee band: ${labelForFeeBand(enquiry.feeBand)}`,
     "",
     "Biggest delivery pain:",
     enquiry.pain.trim(),

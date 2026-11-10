@@ -19,8 +19,8 @@ export default function OpenGraphImage() {
           padding: "72px",
         }}
       >
-        <div style={{ display: "flex", fontSize: 22, letterSpacing: 6, color: "#b8956e" }}>DEVELOOP</div>
-        <div style={{ display: "flex", flexDirection: "column", fontSize: 64, lineHeight: 1.05 }}>
+        <div style={{ display: "flex", fontSize: 28, letterSpacing: 0, color: "#b8956e" }}>Develoop</div>
+        <div style={{ display: "flex", flexDirection: "column", fontSize: 64, lineHeight: 1.05, letterSpacing: 0 }}>
           <div style={{ display: "flex" }}>Deliver faster, at scale,</div>
           <div style={{ display: "flex" }}>with fewer surprises.</div>
         </div>

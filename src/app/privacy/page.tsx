@@ -37,7 +37,7 @@ export default function PrivacyPage() {
           <li>Role</li>
           <li>Sites you expect to deliver in a year</li>
           <li>Biggest delivery pain</li>
-          <li>Budget band</li>
+          <li>Fee band</li>
         </ul>
         <p>
           The form also includes a hidden field that people are not asked to fill in. If that field is filled in, the submission is discarded.

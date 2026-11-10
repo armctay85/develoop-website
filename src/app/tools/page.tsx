@@ -53,7 +53,7 @@ export default function ToolsPage() {
 
         <ul className="mt-12 grid gap-8 md:grid-cols-3">
           {uses.map((item) => (
-            <li key={item.title} className="min-w-0 border-t border-accent/50 pt-5">
+            <li key={item.title} className="min-w-0 border-t border-border pt-5">
               <h2 className="font-serif text-2xl text-foreground">{item.title}</h2>
               <p className="mt-3 text-sm leading-relaxed text-foreground-muted sm:text-base">{item.text}</p>
             </li>

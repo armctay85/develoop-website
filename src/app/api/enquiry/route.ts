@@ -72,7 +72,7 @@ export async function POST(request: Request) {
       company: enquiry.company,
       role: enquiry.role,
       sitesPerYear: enquiry.sitesPerYear,
-      budget: enquiry.budget,
+      feeBand: enquiry.feeBand,
       pain: enquiry.pain,
     });
     return json({ ok: true });

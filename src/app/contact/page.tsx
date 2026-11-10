@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/metadata";
 export const metadata: Metadata = pageMeta({
   title: "Book a call",
   description:
-    "Book a call with Develoop. Share your role, rollout volume, delivery pain and budget band, and we will reply to arrange a conversation.",
+    "Book a call with Develoop. Share your role, rollout volume, delivery pain and fee band, and we will reply to arrange a conversation.",
   path: "/contact/",
 });
 
@@ -16,7 +16,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Book a call"
         title="Tell us about the rollout."
-        lede="Name, company, role, how many sites you expect in a year, the biggest delivery pain, and a budget band. We read the enquiry and reply to arrange a call."
+        lede="Name, company, role, how many sites you expect in a year, the biggest delivery pain, and a fee band. We read the enquiry and reply to arrange a call."
       />
       <div className="container-page pb-20 pt-4 sm:pb-28">
         <div className="grid gap-10 lg:grid-cols-12">
