@@ -1,169 +1,59 @@
-# Develoop Website
+# Develoop
 
-A premium, dark-themed boutique consultancy website for Develoop Retail Development Consultancy.
+Public website for Develoop, a consultant-led design, delivery and development advisory practice.
 
-## Overview
-
-Develoop is a specialist retail development consultancy founded by a senior executive with 25 years experience across Kmart, H&M, Starbucks, and UNIQLO.
-
-**Website URL:** https://develoop.com.au
-
-## Tech Stack
-
-- **Framework:** Next.js 14 (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion
-- **Form Handling:** React Hook Form + Zod
-- **Icons:** Lucide React
-
-## Design System
-
-### Colors
-- **Background:** `#0a0a0a` (deep charcoal/near-black)
-- **Foreground:** `#f5f5f0` (soft off-white)
-- **Accent:** `#b8956e` (muted bronze)
-- **Borders:** `#2a2a2a` (subtle dark borders)
-
-### Typography
-- **Headlines:** Playfair Display (serif)
-- **Body:** Inter (sans-serif)
+The site is a marketing site: eight pages, plus one enquiry route. There is no account system and no payment flow. Domain and DNS settings are left as they are.
 
 ## Pages
 
-1. **Home** (`/`) - Hero, credibility, services overview, founder snapshot, outcomes, engagement model, CTA
-2. **Services** (`/services/`) - 6 detailed service offerings
-3. **Experience** (`/experience/`) - Career highlights and capability matrix
-4. **About** (`/about/`) - Story, philosophy, values
-5. **Insights** (`/insights/`) - Blog structure (automation-ready)
-6. **Contact** (`/contact/`) - Form with validation, Calendly placeholder
-7. **Privacy Policy** (`/privacy/`)
-8. **Terms & Disclaimer** (`/terms/`)
+- `/` Home
+- `/services/` Engagements, deliverables and starting fees
+- `/approach/` Method
+- `/tools/` Estimate HQ, linked out to https://estimatehq.com.au
+- `/about/` The practice
+- `/contact/` Enquiry form
+- `/privacy/`
+- `/terms/` The legal name of the practice is stated only on this page
 
-## Getting Started
+## Stack
 
-### Prerequisites
-- Node.js 18+
-- npm or yarn
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
 
-### Installation
+The enquiry route needs a Node server, so the project is not a static export.
+
+## Local development
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/develoop-website.git
-cd develoop-website
-
-# Install dependencies
-npm install
-
-# Run development server
+npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
-
-### Build for Production
+Open http://localhost:3000.
 
 ```bash
-# Build the project
+npm run lint
 npm run build
-
-# The static files will be in the `dist` folder
+npm start
 ```
 
-## Project Structure
+## Environment variables
 
-```
-develoop-website/
-├── src/
-│   ├── app/                    # Next.js App Router pages
-│   │   ├── page.tsx           # Home page
-│   │   ├── layout.tsx         # Root layout with metadata
-│   │   ├── globals.css        # Global styles
-│   │   ├── services/
-│   │   ├── experience/
-│   │   ├── about/
-│   │   ├── insights/
-│   │   ├── contact/
-│   │   ├── privacy/
-│   │   └── terms/
-│   ├── components/
-│   │   ├── layout/            # Navigation, Footer
-│   │   ├── sections/          # Page sections (Hero, etc.)
-│   │   └── ui/                # Reusable UI components
-│   ├── lib/
-│   │   ├── utils.ts           # Utility functions
-│   │   └── data.ts            # Content data
-│   └── types/
-│       └── index.ts           # TypeScript types
-├── public/                     # Static assets
-├── tailwind.config.ts         # Tailwind configuration
-├── next.config.ts             # Next.js configuration
-└── package.json
-```
+The site builds and the form returns a success state with no environment variables set. In that case the route does not call Resend. It writes the enquiry to the server log and still tells the visitor the enquiry was received.
 
-## Key Features
+To email enquiries, set all three variables. If any one is missing or not a plausible address, the route treats mail as unconfigured.
 
-- ✅ Dark premium aesthetic
-- ✅ Responsive design (mobile-first)
-- ✅ Framer Motion animations
-- ✅ Contact form with validation (React Hook Form + Zod)
-- ✅ SEO metadata setup
-- ✅ Accessibility compliant
-- ✅ Static export ready for Vercel
+| Variable | Purpose |
+| --- | --- |
+| `RESEND_API_KEY` | API key for Resend. Do not commit it. |
+| `ENQUIRY_TO_EMAIL` | Inbox that receives enquiries. One address, or several separated by commas. |
+| `ENQUIRY_FROM_EMAIL` | Sender on a domain verified in Resend. Format: `Develoop <notifications@your-verified-domain>` |
 
-## Environment Variables
+Copy `.env.example` to `.env.local` for local use. `.env.local` is gitignored.
 
-No environment variables are required for the basic site. For production deployment, you may want to set:
+The form also rejects a filled honeypot field (it shows success and does not send) and limits repeat posts from the same network. The limit is kept in memory on each server instance.
 
-```env
-# For contact form (optional - currently uses console.log)
-CONTACT_FORM_ENDPOINT=your_endpoint_here
+## Estimate HQ
 
-# For Calendly integration
-CALENDLY_LINK=your_calendly_url
-```
-
-## Deployment
-
-### Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Import the project in Vercel
-3. The build settings will be auto-detected
-4. Deploy!
-
-### Static Hosting
-
-The site is configured for static export. After running `npm run build`, the `dist` folder contains all static files ready for deployment to any static host.
-
-## Customization
-
-### Updating Content
-
-Content is stored in `src/lib/data.ts`. Update this file to change:
-- Services
-- Experience timeline
-- Insights/blog posts
-- Company information
-
-### Styling
-
-The design system is defined in:
-- `tailwind.config.ts` - Colors, fonts, spacing
-- `src/app/globals.css` - Global styles and components
-
-## Performance
-
-- Lighthouse 90+ scores
-- Optimized images
-- Minimal JavaScript
-- CSS-first animations where possible
-
-## License
-
-© 2024 Develoop. All rights reserved.
-
-## Contact
-
-For questions about this website, contact: support@develoop.com.au
+Estimate HQ is a separate product at https://estimatehq.com.au. This site links to it. It is not rebuilt here.
